@@ -1,0 +1,692 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CustomerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Asthenis">
+          <Key>
+            <PropertyRef Name="AsthenisId" />
+          </Key>
+          <Property Name="AsthenisId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Eponimo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Onoma" Type="nvarchar" MaxLength="50" />
+          <Property Name="FiloId" Type="int" />
+          <Property Name="Diefthinsi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Stathero" Type="nvarchar" MaxLength="10" />
+          <Property Name="Kinito" Type="nvarchar" MaxLength="10" />
+          <Property Name="DateGenisis" Type="date" />
+          <Property Name="Epaggelma" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="amka" Type="decimal" Precision="16" Scale="0" />
+          <Property Name="Patronimo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Filo">
+          <Key>
+            <PropertyRef Name="FiloId" />
+          </Key>
+          <Property Name="FiloId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Perigrafi" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Financial">
+          <Key>
+            <PropertyRef Name="FinancialId" />
+          </Key>
+          <Property Name="FinancialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParastaikoId" Type="int" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Perigrafi" Type="nvarchar" MaxLength="200" />
+          <Property Name="Poso" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="AsthenisId" Type="int" />
+          <Property Name="ParapemptikoId" Type="int" />
+          <Property Name="SinedriesId" Type="int" />
+        </EntityType>
+        <EntityType Name="Fisikotherapeftis">
+          <Key>
+            <PropertyRef Name="FisikotherapeftisId" />
+          </Key>
+          <Property Name="FisikotherapeftisId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Eponimo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Onoma" Type="nvarchar" MaxLength="50" />
+          <Property Name="Stathero" Type="nvarchar" MaxLength="10" />
+          <Property Name="Kinito" Type="nvarchar" MaxLength="10" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Afm" Type="nvarchar" MaxLength="9" />
+        </EntityType>
+        <EntityType Name="Giatros">
+          <Key>
+            <PropertyRef Name="GiatrosId" />
+          </Key>
+          <Property Name="GiatrosId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Eponimo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Onoma" Type="nvarchar" MaxLength="50" />
+          <Property Name="Diefthinsi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Stathero" Type="nvarchar" MaxLength="10" />
+          <Property Name="Kinito" Type="nvarchar" MaxLength="10" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="10" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Parapemptiko">
+          <Key>
+            <PropertyRef Name="ParapemptikoId" />
+          </Key>
+          <Property Name="ParapemptikoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParapemptikoCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="GiatrosId" Type="int" />
+          <Property Name="AsthenisId" Type="int" />
+          <Property Name="DateEnarxis" Type="date" />
+          <Property Name="DateLixis" Type="date" />
+          <Property Name="Poso" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="SeiraParastatiko">
+          <Key>
+            <PropertyRef Name="ParastatikoId" />
+          </Key>
+          <Property Name="ParastatikoId" Type="int" Nullable="false" />
+          <Property Name="Perigrafi" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Sinedries">
+          <Key>
+            <PropertyRef Name="SinedriesId" />
+          </Key>
+          <Property Name="SinedriesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AsthenisID" Type="int" />
+          <Property Name="ParapemptikoId" Type="int" />
+          <Property Name="Date" Type="date" />
+          <Property Name="FisikotherapeftisId" Type="int" />
+          <Property Name="Paratirisis" Type="nvarchar" MaxLength="500" />
+          <Property Name="Poso" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="time" Type="time" Precision="7" />
+        </EntityType>
+        <Association Name="FK_Asthenis_Filo">
+          <End Role="Filo" Type="Self.Filo" Multiplicity="0..1" />
+          <End Role="Asthenis" Type="Self.Asthenis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filo">
+              <PropertyRef Name="FiloId" />
+            </Principal>
+            <Dependent Role="Asthenis">
+              <PropertyRef Name="FiloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Financial_Asthenis">
+          <End Role="Asthenis" Type="Self.Asthenis" Multiplicity="0..1" />
+          <End Role="Financial" Type="Self.Financial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asthenis">
+              <PropertyRef Name="AsthenisId" />
+            </Principal>
+            <Dependent Role="Financial">
+              <PropertyRef Name="AsthenisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Financial_Parapemptiko">
+          <End Role="Parapemptiko" Type="Self.Parapemptiko" Multiplicity="0..1" />
+          <End Role="Financial" Type="Self.Financial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parapemptiko">
+              <PropertyRef Name="ParapemptikoId" />
+            </Principal>
+            <Dependent Role="Financial">
+              <PropertyRef Name="ParapemptikoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Financial_SeiraParastatiko">
+          <End Role="SeiraParastatiko" Type="Self.SeiraParastatiko" Multiplicity="0..1" />
+          <End Role="Financial" Type="Self.Financial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SeiraParastatiko">
+              <PropertyRef Name="ParastatikoId" />
+            </Principal>
+            <Dependent Role="Financial">
+              <PropertyRef Name="ParastaikoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Financial_Sinedries">
+          <End Role="Sinedries" Type="Self.Sinedries" Multiplicity="0..1" />
+          <End Role="Financial" Type="Self.Financial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sinedries">
+              <PropertyRef Name="SinedriesId" />
+            </Principal>
+            <Dependent Role="Financial">
+              <PropertyRef Name="SinedriesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Parapemptiko_Asthenis">
+          <End Role="Asthenis" Type="Self.Asthenis" Multiplicity="0..1" />
+          <End Role="Parapemptiko" Type="Self.Parapemptiko" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asthenis">
+              <PropertyRef Name="AsthenisId" />
+            </Principal>
+            <Dependent Role="Parapemptiko">
+              <PropertyRef Name="AsthenisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Parapemptiko_Giatros">
+          <End Role="Giatros" Type="Self.Giatros" Multiplicity="0..1" />
+          <End Role="Parapemptiko" Type="Self.Parapemptiko" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Giatros">
+              <PropertyRef Name="GiatrosId" />
+            </Principal>
+            <Dependent Role="Parapemptiko">
+              <PropertyRef Name="GiatrosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sinedries_Asthenis">
+          <End Role="Asthenis" Type="Self.Asthenis" Multiplicity="0..1" />
+          <End Role="Sinedries" Type="Self.Sinedries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asthenis">
+              <PropertyRef Name="AsthenisId" />
+            </Principal>
+            <Dependent Role="Sinedries">
+              <PropertyRef Name="AsthenisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sinedries_Fisikotherapeftis">
+          <End Role="Fisikotherapeftis" Type="Self.Fisikotherapeftis" Multiplicity="0..1" />
+          <End Role="Sinedries" Type="Self.Sinedries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fisikotherapeftis">
+              <PropertyRef Name="FisikotherapeftisId" />
+            </Principal>
+            <Dependent Role="Sinedries">
+              <PropertyRef Name="FisikotherapeftisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sinedries_Parapemptiko">
+          <End Role="Parapemptiko" Type="Self.Parapemptiko" Multiplicity="0..1" />
+          <End Role="Sinedries" Type="Self.Sinedries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parapemptiko">
+              <PropertyRef Name="ParapemptikoId" />
+            </Principal>
+            <Dependent Role="Sinedries">
+              <PropertyRef Name="ParapemptikoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CustomerModelStoreContainer">
+          <EntitySet Name="Asthenis" EntityType="Self.Asthenis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Filo" EntityType="Self.Filo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Financial" EntityType="Self.Financial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fisikotherapeftis" EntityType="Self.Fisikotherapeftis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Giatros" EntityType="Self.Giatros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parapemptiko" EntityType="Self.Parapemptiko" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeiraParastatiko" EntityType="Self.SeiraParastatiko" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sinedries" EntityType="Self.Sinedries" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Asthenis_Filo" Association="Self.FK_Asthenis_Filo">
+            <End Role="Filo" EntitySet="Filo" />
+            <End Role="Asthenis" EntitySet="Asthenis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Financial_Asthenis" Association="Self.FK_Financial_Asthenis">
+            <End Role="Asthenis" EntitySet="Asthenis" />
+            <End Role="Financial" EntitySet="Financial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Financial_Parapemptiko" Association="Self.FK_Financial_Parapemptiko">
+            <End Role="Parapemptiko" EntitySet="Parapemptiko" />
+            <End Role="Financial" EntitySet="Financial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Financial_SeiraParastatiko" Association="Self.FK_Financial_SeiraParastatiko">
+            <End Role="SeiraParastatiko" EntitySet="SeiraParastatiko" />
+            <End Role="Financial" EntitySet="Financial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Financial_Sinedries" Association="Self.FK_Financial_Sinedries">
+            <End Role="Sinedries" EntitySet="Sinedries" />
+            <End Role="Financial" EntitySet="Financial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Parapemptiko_Asthenis" Association="Self.FK_Parapemptiko_Asthenis">
+            <End Role="Asthenis" EntitySet="Asthenis" />
+            <End Role="Parapemptiko" EntitySet="Parapemptiko" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Parapemptiko_Giatros" Association="Self.FK_Parapemptiko_Giatros">
+            <End Role="Giatros" EntitySet="Giatros" />
+            <End Role="Parapemptiko" EntitySet="Parapemptiko" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sinedries_Asthenis" Association="Self.FK_Sinedries_Asthenis">
+            <End Role="Asthenis" EntitySet="Asthenis" />
+            <End Role="Sinedries" EntitySet="Sinedries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sinedries_Fisikotherapeftis" Association="Self.FK_Sinedries_Fisikotherapeftis">
+            <End Role="Fisikotherapeftis" EntitySet="Fisikotherapeftis" />
+            <End Role="Sinedries" EntitySet="Sinedries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sinedries_Parapemptiko" Association="Self.FK_Sinedries_Parapemptiko">
+            <End Role="Parapemptiko" EntitySet="Parapemptiko" />
+            <End Role="Sinedries" EntitySet="Sinedries" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CustomerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Asthenis">
+          <Key>
+            <PropertyRef Name="AsthenisId" />
+          </Key>
+          <Property Name="AsthenisId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Eponimo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Onoma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FiloId" Type="Int32" />
+          <Property Name="Diefthinsi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Stathero" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Kinito" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DateGenisis" Type="DateTime" Precision="0" />
+          <Property Name="Epaggelma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="amka" Type="Decimal" Precision="16" Scale="0" />
+          <Property Name="Patronimo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Filo" Relationship="Self.FK_Asthenis_Filo" FromRole="Asthenis" ToRole="Filo" />
+          <NavigationProperty Name="Financial" Relationship="Self.FK_Financial_Asthenis" FromRole="Asthenis" ToRole="Financial" />
+          <NavigationProperty Name="Parapemptiko" Relationship="Self.FK_Parapemptiko_Asthenis" FromRole="Asthenis" ToRole="Parapemptiko" />
+          <NavigationProperty Name="Sinedries" Relationship="Self.FK_Sinedries_Asthenis" FromRole="Asthenis" ToRole="Sinedries" />
+        </EntityType>
+        <EntityType Name="Filo">
+          <Key>
+            <PropertyRef Name="FiloId" />
+          </Key>
+          <Property Name="FiloId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Perigrafi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Asthenis" Relationship="Self.FK_Asthenis_Filo" FromRole="Filo" ToRole="Asthenis" />
+        </EntityType>
+        <EntityType Name="Financial">
+          <Key>
+            <PropertyRef Name="FinancialId" />
+          </Key>
+          <Property Name="FinancialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParastaikoId" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Perigrafi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Poso" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="AsthenisId" Type="Int32" />
+          <Property Name="ParapemptikoId" Type="Int32" />
+          <Property Name="SinedriesId" Type="Int32" />
+          <NavigationProperty Name="Asthenis" Relationship="Self.FK_Financial_Asthenis" FromRole="Financial" ToRole="Asthenis" />
+          <NavigationProperty Name="Parapemptiko" Relationship="Self.FK_Financial_Parapemptiko" FromRole="Financial" ToRole="Parapemptiko" />
+          <NavigationProperty Name="SeiraParastatiko" Relationship="Self.FK_Financial_SeiraParastatiko" FromRole="Financial" ToRole="SeiraParastatiko" />
+          <NavigationProperty Name="Sinedries" Relationship="Self.FK_Financial_Sinedries" FromRole="Financial" ToRole="Sinedries" />
+        </EntityType>
+        <EntityType Name="Fisikotherapeftis">
+          <Key>
+            <PropertyRef Name="FisikotherapeftisId" />
+          </Key>
+          <Property Name="FisikotherapeftisId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Eponimo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Onoma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Stathero" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Kinito" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Afm" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Sinedries" Relationship="Self.FK_Sinedries_Fisikotherapeftis" FromRole="Fisikotherapeftis" ToRole="Sinedries" />
+        </EntityType>
+        <EntityType Name="Giatros">
+          <Key>
+            <PropertyRef Name="GiatrosId" />
+          </Key>
+          <Property Name="GiatrosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Eponimo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Onoma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Diefthinsi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Stathero" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Kinito" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Parapemptiko" Relationship="Self.FK_Parapemptiko_Giatros" FromRole="Giatros" ToRole="Parapemptiko" />
+        </EntityType>
+        <EntityType Name="Parapemptiko">
+          <Key>
+            <PropertyRef Name="ParapemptikoId" />
+          </Key>
+          <Property Name="ParapemptikoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParapemptikoCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GiatrosId" Type="Int32" />
+          <Property Name="AsthenisId" Type="Int32" />
+          <Property Name="DateEnarxis" Type="DateTime" Precision="0" />
+          <Property Name="DateLixis" Type="DateTime" Precision="0" />
+          <Property Name="Poso" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Asthenis" Relationship="Self.FK_Parapemptiko_Asthenis" FromRole="Parapemptiko" ToRole="Asthenis" />
+          <NavigationProperty Name="Financial" Relationship="Self.FK_Financial_Parapemptiko" FromRole="Parapemptiko" ToRole="Financial" />
+          <NavigationProperty Name="Giatros" Relationship="Self.FK_Parapemptiko_Giatros" FromRole="Parapemptiko" ToRole="Giatros" />
+          <NavigationProperty Name="Sinedries" Relationship="Self.FK_Sinedries_Parapemptiko" FromRole="Parapemptiko" ToRole="Sinedries" />
+        </EntityType>
+        <EntityType Name="SeiraParastatiko">
+          <Key>
+            <PropertyRef Name="ParastatikoId" />
+          </Key>
+          <Property Name="ParastatikoId" Type="Int32" Nullable="false" />
+          <Property Name="Perigrafi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Financial" Relationship="Self.FK_Financial_SeiraParastatiko" FromRole="SeiraParastatiko" ToRole="Financial" />
+        </EntityType>
+        <EntityType Name="Sinedries">
+          <Key>
+            <PropertyRef Name="SinedriesId" />
+          </Key>
+          <Property Name="SinedriesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AsthenisID" Type="Int32" />
+          <Property Name="ParapemptikoId" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="FisikotherapeftisId" Type="Int32" />
+          <Property Name="Paratirisis" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Poso" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="time" Type="Time" Precision="7" />
+          <NavigationProperty Name="Asthenis" Relationship="Self.FK_Sinedries_Asthenis" FromRole="Sinedries" ToRole="Asthenis" />
+          <NavigationProperty Name="Financial" Relationship="Self.FK_Financial_Sinedries" FromRole="Sinedries" ToRole="Financial" />
+          <NavigationProperty Name="Fisikotherapeftis" Relationship="Self.FK_Sinedries_Fisikotherapeftis" FromRole="Sinedries" ToRole="Fisikotherapeftis" />
+          <NavigationProperty Name="Parapemptiko" Relationship="Self.FK_Sinedries_Parapemptiko" FromRole="Sinedries" ToRole="Parapemptiko" />
+        </EntityType>
+        <Association Name="FK_Asthenis_Filo">
+          <End Role="Filo" Type="Self.Filo" Multiplicity="0..1" />
+          <End Role="Asthenis" Type="Self.Asthenis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filo">
+              <PropertyRef Name="FiloId" />
+            </Principal>
+            <Dependent Role="Asthenis">
+              <PropertyRef Name="FiloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Financial_Asthenis">
+          <End Role="Asthenis" Type="Self.Asthenis" Multiplicity="0..1" />
+          <End Role="Financial" Type="Self.Financial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asthenis">
+              <PropertyRef Name="AsthenisId" />
+            </Principal>
+            <Dependent Role="Financial">
+              <PropertyRef Name="AsthenisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Parapemptiko_Asthenis">
+          <End Role="Asthenis" Type="Self.Asthenis" Multiplicity="0..1" />
+          <End Role="Parapemptiko" Type="Self.Parapemptiko" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asthenis">
+              <PropertyRef Name="AsthenisId" />
+            </Principal>
+            <Dependent Role="Parapemptiko">
+              <PropertyRef Name="AsthenisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sinedries_Asthenis">
+          <End Role="Asthenis" Type="Self.Asthenis" Multiplicity="0..1" />
+          <End Role="Sinedries" Type="Self.Sinedries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asthenis">
+              <PropertyRef Name="AsthenisId" />
+            </Principal>
+            <Dependent Role="Sinedries">
+              <PropertyRef Name="AsthenisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Financial_Parapemptiko">
+          <End Role="Parapemptiko" Type="Self.Parapemptiko" Multiplicity="0..1" />
+          <End Role="Financial" Type="Self.Financial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parapemptiko">
+              <PropertyRef Name="ParapemptikoId" />
+            </Principal>
+            <Dependent Role="Financial">
+              <PropertyRef Name="ParapemptikoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Financial_SeiraParastatiko">
+          <End Role="SeiraParastatiko" Type="Self.SeiraParastatiko" Multiplicity="0..1" />
+          <End Role="Financial" Type="Self.Financial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SeiraParastatiko">
+              <PropertyRef Name="ParastatikoId" />
+            </Principal>
+            <Dependent Role="Financial">
+              <PropertyRef Name="ParastaikoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Financial_Sinedries">
+          <End Role="Sinedries" Type="Self.Sinedries" Multiplicity="0..1" />
+          <End Role="Financial" Type="Self.Financial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sinedries">
+              <PropertyRef Name="SinedriesId" />
+            </Principal>
+            <Dependent Role="Financial">
+              <PropertyRef Name="SinedriesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sinedries_Fisikotherapeftis">
+          <End Role="Fisikotherapeftis" Type="Self.Fisikotherapeftis" Multiplicity="0..1" />
+          <End Role="Sinedries" Type="Self.Sinedries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fisikotherapeftis">
+              <PropertyRef Name="FisikotherapeftisId" />
+            </Principal>
+            <Dependent Role="Sinedries">
+              <PropertyRef Name="FisikotherapeftisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Parapemptiko_Giatros">
+          <End Role="Giatros" Type="Self.Giatros" Multiplicity="0..1" />
+          <End Role="Parapemptiko" Type="Self.Parapemptiko" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Giatros">
+              <PropertyRef Name="GiatrosId" />
+            </Principal>
+            <Dependent Role="Parapemptiko">
+              <PropertyRef Name="GiatrosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sinedries_Parapemptiko">
+          <End Role="Parapemptiko" Type="Self.Parapemptiko" Multiplicity="0..1" />
+          <End Role="Sinedries" Type="Self.Sinedries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parapemptiko">
+              <PropertyRef Name="ParapemptikoId" />
+            </Principal>
+            <Dependent Role="Sinedries">
+              <PropertyRef Name="ParapemptikoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CustomerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Asthenis" EntityType="Self.Asthenis" />
+          <EntitySet Name="Filo" EntityType="Self.Filo" />
+          <EntitySet Name="Financial" EntityType="Self.Financial" />
+          <EntitySet Name="Fisikotherapeftis" EntityType="Self.Fisikotherapeftis" />
+          <EntitySet Name="Giatros" EntityType="Self.Giatros" />
+          <EntitySet Name="Parapemptiko" EntityType="Self.Parapemptiko" />
+          <EntitySet Name="SeiraParastatiko" EntityType="Self.SeiraParastatiko" />
+          <EntitySet Name="Sinedries" EntityType="Self.Sinedries" />
+          <AssociationSet Name="FK_Asthenis_Filo" Association="Self.FK_Asthenis_Filo">
+            <End Role="Filo" EntitySet="Filo" />
+            <End Role="Asthenis" EntitySet="Asthenis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Financial_Asthenis" Association="Self.FK_Financial_Asthenis">
+            <End Role="Asthenis" EntitySet="Asthenis" />
+            <End Role="Financial" EntitySet="Financial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Parapemptiko_Asthenis" Association="Self.FK_Parapemptiko_Asthenis">
+            <End Role="Asthenis" EntitySet="Asthenis" />
+            <End Role="Parapemptiko" EntitySet="Parapemptiko" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sinedries_Asthenis" Association="Self.FK_Sinedries_Asthenis">
+            <End Role="Asthenis" EntitySet="Asthenis" />
+            <End Role="Sinedries" EntitySet="Sinedries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Financial_Parapemptiko" Association="Self.FK_Financial_Parapemptiko">
+            <End Role="Parapemptiko" EntitySet="Parapemptiko" />
+            <End Role="Financial" EntitySet="Financial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Financial_SeiraParastatiko" Association="Self.FK_Financial_SeiraParastatiko">
+            <End Role="SeiraParastatiko" EntitySet="SeiraParastatiko" />
+            <End Role="Financial" EntitySet="Financial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Financial_Sinedries" Association="Self.FK_Financial_Sinedries">
+            <End Role="Sinedries" EntitySet="Sinedries" />
+            <End Role="Financial" EntitySet="Financial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sinedries_Fisikotherapeftis" Association="Self.FK_Sinedries_Fisikotherapeftis">
+            <End Role="Fisikotherapeftis" EntitySet="Fisikotherapeftis" />
+            <End Role="Sinedries" EntitySet="Sinedries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Parapemptiko_Giatros" Association="Self.FK_Parapemptiko_Giatros">
+            <End Role="Giatros" EntitySet="Giatros" />
+            <End Role="Parapemptiko" EntitySet="Parapemptiko" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sinedries_Parapemptiko" Association="Self.FK_Sinedries_Parapemptiko">
+            <End Role="Parapemptiko" EntitySet="Parapemptiko" />
+            <End Role="Sinedries" EntitySet="Sinedries" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CustomerModelStoreContainer" CdmEntityContainer="CustomerEntities">
+          <EntitySetMapping Name="Asthenis">
+            <EntityTypeMapping TypeName="CustomerModel.Asthenis">
+              <MappingFragment StoreEntitySet="Asthenis">
+                <ScalarProperty Name="AsthenisId" ColumnName="AsthenisId" />
+                <ScalarProperty Name="Eponimo" ColumnName="Eponimo" />
+                <ScalarProperty Name="Onoma" ColumnName="Onoma" />
+                <ScalarProperty Name="FiloId" ColumnName="FiloId" />
+                <ScalarProperty Name="Diefthinsi" ColumnName="Diefthinsi" />
+                <ScalarProperty Name="Stathero" ColumnName="Stathero" />
+                <ScalarProperty Name="Kinito" ColumnName="Kinito" />
+                <ScalarProperty Name="DateGenisis" ColumnName="DateGenisis" />
+                <ScalarProperty Name="Epaggelma" ColumnName="Epaggelma" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="amka" ColumnName="amka" />
+                <ScalarProperty Name="Patronimo" ColumnName="Patronimo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Filo">
+            <EntityTypeMapping TypeName="CustomerModel.Filo">
+              <MappingFragment StoreEntitySet="Filo">
+                <ScalarProperty Name="FiloId" ColumnName="FiloId" />
+                <ScalarProperty Name="Perigrafi" ColumnName="Perigrafi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Financial">
+            <EntityTypeMapping TypeName="CustomerModel.Financial">
+              <MappingFragment StoreEntitySet="Financial">
+                <ScalarProperty Name="FinancialId" ColumnName="FinancialId" />
+                <ScalarProperty Name="ParastaikoId" ColumnName="ParastaikoId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Perigrafi" ColumnName="Perigrafi" />
+                <ScalarProperty Name="Poso" ColumnName="Poso" />
+                <ScalarProperty Name="AsthenisId" ColumnName="AsthenisId" />
+                <ScalarProperty Name="ParapemptikoId" ColumnName="ParapemptikoId" />
+                <ScalarProperty Name="SinedriesId" ColumnName="SinedriesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fisikotherapeftis">
+            <EntityTypeMapping TypeName="CustomerModel.Fisikotherapeftis">
+              <MappingFragment StoreEntitySet="Fisikotherapeftis">
+                <ScalarProperty Name="FisikotherapeftisId" ColumnName="FisikotherapeftisId" />
+                <ScalarProperty Name="Eponimo" ColumnName="Eponimo" />
+                <ScalarProperty Name="Onoma" ColumnName="Onoma" />
+                <ScalarProperty Name="Stathero" ColumnName="Stathero" />
+                <ScalarProperty Name="Kinito" ColumnName="Kinito" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Afm" ColumnName="Afm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Giatros">
+            <EntityTypeMapping TypeName="CustomerModel.Giatros">
+              <MappingFragment StoreEntitySet="Giatros">
+                <ScalarProperty Name="GiatrosId" ColumnName="GiatrosId" />
+                <ScalarProperty Name="Eponimo" ColumnName="Eponimo" />
+                <ScalarProperty Name="Onoma" ColumnName="Onoma" />
+                <ScalarProperty Name="Diefthinsi" ColumnName="Diefthinsi" />
+                <ScalarProperty Name="Stathero" ColumnName="Stathero" />
+                <ScalarProperty Name="Kinito" ColumnName="Kinito" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parapemptiko">
+            <EntityTypeMapping TypeName="CustomerModel.Parapemptiko">
+              <MappingFragment StoreEntitySet="Parapemptiko">
+                <ScalarProperty Name="ParapemptikoId" ColumnName="ParapemptikoId" />
+                <ScalarProperty Name="ParapemptikoCode" ColumnName="ParapemptikoCode" />
+                <ScalarProperty Name="GiatrosId" ColumnName="GiatrosId" />
+                <ScalarProperty Name="AsthenisId" ColumnName="AsthenisId" />
+                <ScalarProperty Name="DateEnarxis" ColumnName="DateEnarxis" />
+                <ScalarProperty Name="DateLixis" ColumnName="DateLixis" />
+                <ScalarProperty Name="Poso" ColumnName="Poso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeiraParastatiko">
+            <EntityTypeMapping TypeName="CustomerModel.SeiraParastatiko">
+              <MappingFragment StoreEntitySet="SeiraParastatiko">
+                <ScalarProperty Name="ParastatikoId" ColumnName="ParastatikoId" />
+                <ScalarProperty Name="Perigrafi" ColumnName="Perigrafi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sinedries">
+            <EntityTypeMapping TypeName="CustomerModel.Sinedries">
+              <MappingFragment StoreEntitySet="Sinedries">
+                <ScalarProperty Name="SinedriesId" ColumnName="SinedriesId" />
+                <ScalarProperty Name="AsthenisID" ColumnName="AsthenisID" />
+                <ScalarProperty Name="ParapemptikoId" ColumnName="ParapemptikoId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="FisikotherapeftisId" ColumnName="FisikotherapeftisId" />
+                <ScalarProperty Name="Paratirisis" ColumnName="Paratirisis" />
+                <ScalarProperty Name="Poso" ColumnName="Poso" />
+                <ScalarProperty Name="time" ColumnName="time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
