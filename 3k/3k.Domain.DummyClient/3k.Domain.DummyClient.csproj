@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0B2BEFE3-4ACD-4D0C-B2B2-B9427094AB01}</ProjectGuid>
+    <ProjectGuid>{EF8F08F6-E61A-4AAA-AE9B-301503F09D5A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_3k.Infrastructure</RootNamespace>
-    <AssemblyName>3k.Infrastructure</AssemblyName>
+    <RootNamespace>_3k.Domain.DummyClient</RootNamespace>
+    <AssemblyName>3k.Domain.DummyClient</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,35 +34,6 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\3k.Core\3k.Core.csproj">
-      <Project>{E9ACE8A5-2725-43A5-B179-AC40D043112B}</Project>
-      <Name>3k.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\3k.Domain\3k.Domain.csproj">
-      <Project>{9951D3DD-CA67-4344-A9C9-C38C05FF3373}</Project>
-      <Name>3k.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Repositories\AsthenisRepository.cs" />
-    <Compile Include="Repositories\Ef3kRepository.cs" />
-    <Compile Include="Services\ClientService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Data" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
