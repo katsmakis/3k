@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3k.Core", "3k.Core\3k.Core.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3k.Domain.DummyClient", "3k.Domain.DummyClient\3k.Domain.DummyClient.csproj", "{EF8F08F6-E61A-4AAA-AE9B-301503F09D5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3k", "3k\3k.csproj", "{A6A441BA-5D50-4A6D-B8CC-ECDADECDEA71}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{EF8F08F6-E61A-4AAA-AE9B-301503F09D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF8F08F6-E61A-4AAA-AE9B-301503F09D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF8F08F6-E61A-4AAA-AE9B-301503F09D5A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A6A441BA-5D50-4A6D-B8CC-ECDADECDEA71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A6A441BA-5D50-4A6D-B8CC-ECDADECDEA71}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A6A441BA-5D50-4A6D-B8CC-ECDADECDEA71}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A6A441BA-5D50-4A6D-B8CC-ECDADECDEA71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
