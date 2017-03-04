@@ -50,7 +50,11 @@
   <ItemGroup>
     <Compile Include="Repositories\AsthenisRepository.cs" />
     <Compile Include="Repositories\Ef3kRepository.cs" />
+    <Compile Include="Repositories\FisikotherapeftisRepository.cs" />
+    <Compile Include="Repositories\GiatrosRepository.cs" />
     <Compile Include="Services\ClientService.cs" />
+    <Compile Include="Services\FisikotherapeftisService.cs" />
+    <Compile Include="Services\GiatrosService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
