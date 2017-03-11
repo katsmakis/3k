@@ -20,6 +20,12 @@ namespace _3k.Infrastructure.Services
             _asthenisRepository = asthenisReposiroty;
         }
 
+      //  public IEnumerable<Asthenis> GetAsthenisByAll(string partialEponimo, string partialOnoma, decimal AMKA)
+       // {
+        //    var clients = _asthenisRepository.GetAsthenisByAll(partialEponimo,partialOnoma,AMKA);
+         //   return clients;
+        //}
+
         public IEnumerable<Asthenis> GetClientByAMKA(decimal AMKA)
         {
             var clients = _asthenisRepository.GetAsthenisByAMKA(AMKA);

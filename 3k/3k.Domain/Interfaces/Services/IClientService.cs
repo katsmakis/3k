@@ -11,5 +11,7 @@ namespace _3k.Domain.Interfaces.Services
         IEnumerable<Asthenis> GetClientByEponimo(string partialEponimo);
 
         IEnumerable<Asthenis> GetClientByAMKA(decimal AMKA);
+
+     //   IEnumerable<Asthenis> GetAsthenisByAll(string partialEponimo, string partialOnoma, decimal AMKA);
     }
 }
