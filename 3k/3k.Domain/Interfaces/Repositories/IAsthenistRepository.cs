@@ -12,6 +12,6 @@ namespace _3k.Domain.Interfaces.Repositories
 
         IEnumerable<Asthenis> GetAsthenisByAMKA(decimal AMKA);
 
-       // IEnumerable<Asthenis> GetAsthenisByAll(string partialEponimo, string partialOnoma, decimal AMKA);
+        IEnumerable<Asthenis> GetAsthenisByAll(string partialEponimo, string partialOnoma, decimal AMKA);
     }
 }

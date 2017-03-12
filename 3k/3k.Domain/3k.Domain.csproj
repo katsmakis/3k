@@ -75,14 +75,18 @@
     <Compile Include="Giatros.cs">
       <DependentUpon>3k.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\Repositories\IFinancialRepository.cs" />
     <Compile Include="Interfaces\Repositories\IParapemptikoRepository.cs" />
     <Compile Include="Interfaces\Repositories\ISinedriesRepository.cs" />
     <Compile Include="Interfaces\Repositories\IFisikotherapeftisRepository.cs" />
     <Compile Include="Interfaces\Repositories\IAsthenistRepository.cs" />
     <Compile Include="Interfaces\Repositories\IGiatrosRepository.cs" />
     <Compile Include="Interfaces\Services\IClientService.cs" />
+    <Compile Include="Interfaces\Services\IFinancialService.cs" />
     <Compile Include="Interfaces\Services\IFisikotherapeftisService.cs" />
     <Compile Include="Interfaces\Services\IGiatrosService.cs" />
+    <Compile Include="Interfaces\Services\IParapemptikoService.cs" />
+    <Compile Include="Interfaces\Services\ISinedriesService.cs" />
     <Compile Include="Parapemptiko.cs">
       <DependentUpon>3k.tt</DependentUpon>
     </Compile>
