@@ -17,10 +17,7 @@ namespace _3k.Infrastructure.Services
         public FisikotherapeftisService(IFisikotherapeftisRepository fisikotherapeftisRepository)
         {
             _fisikotherapeftisRepository = fisikotherapeftisRepository;
-
         }
-
-
 
 
         public IEnumerable<Fisikotherapeftis> GetFisikotherapeftisByEponimo(string partialEponomo)

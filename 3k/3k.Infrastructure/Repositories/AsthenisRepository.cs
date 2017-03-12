@@ -12,12 +12,16 @@ namespace _3k.Infrastructure.Repositories
         {
         }
 
-       // public IEnumerable<Asthenis> GetAsthenisByAll(string partialEponimo, string partialOnoma, decimal AMKA)
-        //{
+        public IEnumerable<Asthenis> GetAsthenisByAll(string partialEponimo, string partialOnoma, decimal AMKA)
+        {
+            IEnumerable<Asthenis> asthenis;
+            //if (partialEponimo != string.Empty)
+            //    {
+            //    asthenis=
 
-        //    return Context.Asthenis.Where(b => b.Eponimo.Contains(partialEponimo) && c => c.Onoma.Contains(partialOnoma) && (a => a.amka == AMKA));
-      
-        //}
+                return Context.Asthenis.Where(b => b.Eponimo.Contains(partialEponimo) && b.Onoma.Contains(partialOnoma) && b.amka == AMKA);
+                //}
+        }
 
         public IEnumerable<Asthenis> GetAsthenisByAMKA(decimal AMKA)
         {

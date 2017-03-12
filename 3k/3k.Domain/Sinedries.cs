@@ -34,5 +34,6 @@ namespace _3k.Domain
         public virtual ICollection<Financial> Financial { get; set; }
         public virtual Fisikotherapeftis Fisikotherapeftis { get; set; }
         public virtual Parapemptiko Parapemptiko { get; set; }
+        public int AsthenisId { get; set; }
     }
 }
