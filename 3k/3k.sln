@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3k.Domain.DummyClient", "3k
 		{0B2BEFE3-4ACD-4D0C-B2B2-B9427094AB01} = {0B2BEFE3-4ACD-4D0C-B2B2-B9427094AB01}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3k.UX.Online.Themed", "3k.UX.Online.Themed\3k.UX.Online.Themed.csproj", "{04DF0B0C-D568-4265-8F21-40B4427E590F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{EF8F08F6-E61A-4AAA-AE9B-301503F09D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF8F08F6-E61A-4AAA-AE9B-301503F09D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF8F08F6-E61A-4AAA-AE9B-301503F09D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04DF0B0C-D568-4265-8F21-40B4427E590F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04DF0B0C-D568-4265-8F21-40B4427E590F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04DF0B0C-D568-4265-8F21-40B4427E590F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04DF0B0C-D568-4265-8F21-40B4427E590F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
