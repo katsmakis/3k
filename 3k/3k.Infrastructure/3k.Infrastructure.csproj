@@ -52,6 +52,8 @@
     <Compile Include="Repositories\Ef3kRepository.cs" />
     <Compile Include="Repositories\FisikotherapeftisRepository.cs" />
     <Compile Include="Repositories\GiatrosRepository.cs" />
+    <Compile Include="Repositories\ParapemptikoRepository.cs" />
+    <Compile Include="Repositories\SinedriesRepository.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\FisikotherapeftisService.cs" />
     <Compile Include="Services\GiatrosService.cs" />

@@ -75,6 +75,8 @@
     <Compile Include="Giatros.cs">
       <DependentUpon>3k.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\Repositories\IParapemptikoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ISinedriesRepository.cs" />
     <Compile Include="Interfaces\Repositories\IFisikotherapeftisRepository.cs" />
     <Compile Include="Interfaces\Repositories\IAsthenistRepository.cs" />
     <Compile Include="Interfaces\Repositories\IGiatrosRepository.cs" />

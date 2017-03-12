@@ -16,7 +16,7 @@ namespace _3k.Infrastructure.Repositories
         {
         }
 
-       // public IEnumerable<Asthenis> GetAsthenisByAll(string partialEponimo, string partialOnoma, decimal AMKA)
+        //public IEnumerable<Asthenis> GetAsthenisByAll(string partialEponimo, string partialOnoma, decimal AMKA)
         //{
 
         //    return Context.Asthenis.Where(b => b.Eponimo.Contains(partialEponimo) && c => c.Onoma.Contains(partialOnoma) && (a => a.amka == AMKA));
