@@ -1,16 +1,12 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using _3k.Domain;
+﻿using _3k.Domain;
 using _3k.Domain.Interfaces.Repositories;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 
 namespace _3k.Infrastructure.Repositories
 {
-    public class AsthenisRepository : Ef3kRepository<Asthenis> , IAsthenistRepository
+    public class AsthenisRepository : Ef3kRepository<Asthenis> , IAsthenisRepository
     {
         public AsthenisRepository(DbContext context):base (context)
         {

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace _3k.Domain.Interfaces.Repositories
 {
-    public interface IAsthenistRepository
+    public interface IAsthenisRepository
     {
         IEnumerable<Asthenis> GetAsthenisByEponimo(string partialEponimo);
 

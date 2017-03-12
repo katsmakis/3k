@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using _3k.Domain.Interfaces.Services;
-using _3k.Domain;
+﻿using _3k.Domain;
 using _3k.Domain.Interfaces.Repositories;
+using _3k.Domain.Interfaces.Services;
+using System.Collections.Generic;
 
 namespace _3k.Infrastructure.Services
 {
     public class ClientService : IClientService
     {
-        private readonly IAsthenistRepository _asthenisRepository;
+        private readonly IAsthenisRepository _asthenisRepository;
 
 
-        public ClientService(IAsthenistRepository asthenisReposiroty)
+        public ClientService(IAsthenisRepository asthenisReposiroty)
 
         {
             _asthenisRepository = asthenisReposiroty;
