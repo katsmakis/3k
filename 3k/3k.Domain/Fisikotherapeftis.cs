@@ -23,6 +23,7 @@ namespace _3k.Domain
         public int FisikotherapeftisId { get; set; }
         public string Eponimo { get; set; }
         public string Onoma { get; set; }
+        public string Patronimo { get; set; }
         public string Stathero { get; set; }
         public string Kinito { get; set; }
         public string email { get; set; }

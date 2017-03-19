@@ -25,6 +25,7 @@ namespace _3k.Domain
         public int AsthenisId { get; set; }
         public string Eponimo { get; set; }
         public string Onoma { get; set; }
+        public string Patronimo { get; set; }
         public Nullable<int> FiloId { get; set; }
         public string Diefthinsi { get; set; }
         public string Stathero { get; set; }
@@ -33,7 +34,6 @@ namespace _3k.Domain
         public string Epaggelma { get; set; }
         public string email { get; set; }
         public Nullable<decimal> amka { get; set; }
-        public string Patronimo { get; set; }
     
         public virtual Filo Filo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

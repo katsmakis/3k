@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4b8dcef1f06c4a17a94993aea19bd60f" Name="Diagram1">
+      <Diagram DiagramId="e9eb7fc06e634c2692620c4c80992757" Name="Diagram1">
         <EntityTypeShape EntityType="CustomerModel.Asthenis" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CustomerModel.Filo" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CustomerModel.Financial" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CustomerModel.Fisikotherapeftis" Width="1.5" PointX="8.25" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CustomerModel.Giatros" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CustomerModel.Parapemptiko" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CustomerModel.SeiraParastatiko" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="CustomerModel.Parapemptiko" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CustomerModel.SeiraParastatiko" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CustomerModel.Sinedries" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
         <AssociationConnector Association="CustomerModel.FK_Asthenis_Filo" ManuallyRouted="false" />
         <AssociationConnector Association="CustomerModel.FK_Financial_Asthenis" ManuallyRouted="false" />

@@ -21,7 +21,7 @@ namespace _3k.Domain
         }
     
         public int SinedriesId { get; set; }
-        public Nullable<int> AsthenisID { get; set; }
+        public Nullable<int> AsthenisId { get; set; }
         public Nullable<int> ParapemptikoId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> FisikotherapeftisId { get; set; }
@@ -34,6 +34,5 @@ namespace _3k.Domain
         public virtual ICollection<Financial> Financial { get; set; }
         public virtual Fisikotherapeftis Fisikotherapeftis { get; set; }
         public virtual Parapemptiko Parapemptiko { get; set; }
-        public int AsthenisId { get; set; }
     }
 }
