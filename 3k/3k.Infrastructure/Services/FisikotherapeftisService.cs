@@ -13,17 +13,23 @@ namespace _3k.Infrastructure.Services
     {
 
         private readonly IFisikotherapeftisRepository _fisikotherapeftisRepository;
-
+        
         public FisikotherapeftisService(IFisikotherapeftisRepository fisikotherapeftisRepository)
         {
             _fisikotherapeftisRepository = fisikotherapeftisRepository;
         }
 
-
+        // Get By
         public IEnumerable<Fisikotherapeftis> GetFisikotherapeftisByEponimo(string partialEponomo)
         {
             var clients = _fisikotherapeftisRepository.GetFisikotherapeftisByEponimo(partialEponomo);
             return clients;
+        }
+
+        // Save -Update
+        public void SaveFisikotherapeftis(Fisikotherapeftis fisikotherapeftis)
+        {
+            _fisikotherapeftisRepository.Update(fisikotherapeftis);
         }
     }
 }

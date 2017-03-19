@@ -15,17 +15,17 @@ namespace _3k.Domain
     public partial class Financial
     {
         public int FinancialId { get; set; }
-        public Nullable<int> ParastaikoId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public string Perigrafi { get; set; }
         public Nullable<decimal> Poso { get; set; }
         public Nullable<int> AsthenisId { get; set; }
         public Nullable<int> ParapemptikoId { get; set; }
         public Nullable<int> SinedriesId { get; set; }
+        public Nullable<int> SeiraParastaikouId { get; set; }
     
         public virtual Asthenis Asthenis { get; set; }
         public virtual Parapemptiko Parapemptiko { get; set; }
-        public virtual SeiraParastatiko SeiraParastatiko { get; set; }
         public virtual Sinedries Sinedries { get; set; }
+        public virtual SeiraParastatikou SeiraParastatikou { get; set; }
     }
 }

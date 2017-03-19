@@ -12,15 +12,15 @@ namespace _3k.Domain
     using System;
     using System.Collections.Generic;
     
-    public partial class SeiraParastatiko
+    public partial class SeiraParastatikou
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SeiraParastatiko()
+        public SeiraParastatikou()
         {
             this.Financial = new HashSet<Financial>();
         }
     
-        public int ParastatikoId { get; set; }
+        public int SeiraId { get; set; }
         public string Perigrafi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

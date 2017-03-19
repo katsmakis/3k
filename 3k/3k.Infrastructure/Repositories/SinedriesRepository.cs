@@ -15,19 +15,19 @@ namespace _3k.Infrastructure.Repositories
         {
         }
 
-        public IEnumerable<Sinedries> GetSinedriesByParapemtiko(int partialParapemptikoId)
+        public IEnumerable<Sinedries> GetSinedriesByParapemtiko(int parapemptikoId)
         {
-            return Context.Sinedries.Where(a => a.SinedriesId == partialParapemptikoId);
+            return Context.Sinedries.Where(a => a.SinedriesId == parapemptikoId);
         }
 
-        public IEnumerable<Sinedries> GetSinedriesByAsthenisId(int partialAsthnisId)
+        public IEnumerable<Sinedries> GetSinedriesByAsthenisId(int asthnisId)
         {
-            return Context.Sinedries.Where(a => a.AsthenisId == partialAsthnisId);
+            return Context.Sinedries.Where(a => a.AsthenisId == asthnisId);
         }
 
-        public IEnumerable<Sinedries> GetSinedriesByFisikotherapeftisId(int partialFisikotherapeftisId)
+        public IEnumerable<Sinedries> GetSinedriesByFisikotherapeftisId(int fisikotherapeftisId)
         {
-            return Context.Sinedries.Where(a => a.FisikotherapeftisId == partialFisikotherapeftisId);
+            return Context.Sinedries.Where(a => a.FisikotherapeftisId == fisikotherapeftisId);
         }
 
         

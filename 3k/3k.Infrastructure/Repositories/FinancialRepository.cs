@@ -15,24 +15,20 @@ namespace _3k.Infrastructure.Repositories
         {
         }
 
-        public IEnumerable<Financial> GetFinancialByAsthenisId(int partialAsthenisId)
+        public IEnumerable<Financial> GetFinancialByAsthenisId(int asthenisId)
         {
-            return Context.Financial.Where(a => a.AsthenisId == partialAsthenisId);
+            return Context.Financial.Where(a => a.AsthenisId == asthenisId);
         }
 
-        public IEnumerable<Financial> GetFinancialByFinancialId(int partialFinancialId)
+
+        public IEnumerable<Financial> GetFinancialByParapemptikoId(int parapemptikoId)
         {
-            return Context.Financial.Where(a => a.FinancialId == partialFinancialId);
+            return Context.Financial.Where(a => a.ParapemptikoId == parapemptikoId);
         }
 
-        public IEnumerable<Financial> GetFinancialByParapemptikoId(int partialParapemptikoId)
+        public IEnumerable<Financial> GetFinancialBySinedriesId(int sinedriesId)
         {
-            return Context.Financial.Where(a => a.ParapemptikoId == partialParapemptikoId);
-        }
-
-        public IEnumerable<Financial> GetFinancialBySinedriesId(int partialSinedriesId)
-        {
-            return Context.Financial.Where(a => a.SinedriesId == partialSinedriesId);
+            return Context.Financial.Where(a => a.SinedriesId == sinedriesId);
         }
     }
 }

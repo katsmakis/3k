@@ -9,25 +9,21 @@ using System.Data.Entity;
 
 namespace _3k.Infrastructure.Repositories
 {
-    public class ParapemptikoRepository : Ef3kRepository<Sinedries>, IParapemptikoRepository
+    public class ParapemptikoRepository : Ef3kRepository<Parapemptiko>, IParapemptikoRepository
     {
         public ParapemptikoRepository(DbContext context) : base(context)
         {
         }
 
-        public IEnumerable<Parapemptiko> GetParapempitkoByAsthnisId(int PartialAsthnisId)
+        public IEnumerable<Parapemptiko> GetParapempitkoByAsthnisId(int asthnisId)
         {
-            return Context.Parapemptiko.Where(a => a.AsthenisId == PartialAsthnisId);
+            return Context.Parapemptiko.Where(a => a.AsthenisId == asthnisId);
         }
 
-        public IEnumerable<Parapemptiko> GetParapempitkoByGiatrosId(int PartialGiatrosId)
+        public IEnumerable<Parapemptiko> GetParapempitkoByGiatrosId(int giatrosId)
         {
-            return Context.Parapemptiko.Where(a => a.GiatrosId == PartialGiatrosId);
+            return Context.Parapemptiko.Where(a => a.GiatrosId == giatrosId);
         }
 
-        public IEnumerable<Parapemptiko> GetParapempitkoByParapemptikoId(int PartialParapemptikoId)
-        {
-            return Context.Parapemptiko.Where(a => a.ParapemptikoId == PartialParapemptikoId);
-        }
     }
 }

@@ -31,7 +31,7 @@ namespace _3k.Domain
         public virtual DbSet<Fisikotherapeftis> Fisikotherapeftis { get; set; }
         public virtual DbSet<Giatros> Giatros { get; set; }
         public virtual DbSet<Parapemptiko> Parapemptiko { get; set; }
-        public virtual DbSet<SeiraParastatiko> SeiraParastatiko { get; set; }
         public virtual DbSet<Sinedries> Sinedries { get; set; }
+        public virtual DbSet<SeiraParastatikou> SeiraParastatikou { get; set; }
     }
 }

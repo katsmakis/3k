@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace _3k.Domain.Interfaces.Repositories
 {
-    public interface IFisikotherapeftisRepository : IRepository<Fisikotherapeftis>, IDisposable
+    public interface ISeiraParastatikouRepository : IRepository<SeiraParastatikou>, IDisposable
     {
-        IEnumerable<Fisikotherapeftis> GetFisikotherapeftisByEponimo(string partialEponimo);
+        IEnumerable<SeiraParastatikou> GetSeiraParastatikouByPerigrafi(string partialPerigrafi);
+
     }
 }

@@ -8,10 +8,13 @@ namespace _3k.Domain.Interfaces.Services
 {
     public interface IParapemptikoService
     {
-        IEnumerable<Parapemptiko> GetParapempitkoByParapemptikoId(int PartialParapemptikoId);
+        // Get By
+ 
+        IEnumerable<Parapemptiko> GetParapempitkoByAsthnisId(int asthnisId);
 
-        IEnumerable<Parapemptiko> GetParapempitkoByAsthnisId(int PartialAsthnisId);
+        IEnumerable<Parapemptiko> GetParapempitkoByGiatrosId(int giatrosId);
 
-        IEnumerable<Parapemptiko> GetParapempitkoByGiatrosId(int PartialGiatrosId);
+        // Save - Update
+        void SaveParampemptiko(Parapemptiko parapemptiko);
     }
 }
