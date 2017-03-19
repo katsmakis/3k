@@ -163,6 +163,12 @@
       <LastGenOutput>3k.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\3k.Core\3k.Core.csproj">
+      <Project>{E9ACE8A5-2725-43A5-B179-AC40D043112B}</Project>
+      <Name>3k.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

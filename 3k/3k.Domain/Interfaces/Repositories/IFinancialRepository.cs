@@ -1,12 +1,13 @@
-﻿using System;
+﻿using _3k.Core.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3k.Domain.Interfaces.Repositories
+namespace _3k.Domain.Interfaces.Repositories 
 {
-    public interface IFinancialRepository
+    public interface IFinancialRepository : IRepository<Financial>, IDisposable
     {
         IEnumerable<Financial> GetFinancialByFinancialId(int partialFinancialId);
 

@@ -8,6 +8,7 @@ namespace _3k.Domain.Interfaces.Services
 {
     public interface IFinancialService
     {
+        // Get By
         IEnumerable<Financial> GetFinancialByFinancialId(int partialFinancialId);
 
         IEnumerable<Financial> GetFinancialByAsthenisId(int partialAsthenisId);
@@ -15,5 +16,8 @@ namespace _3k.Domain.Interfaces.Services
         IEnumerable<Financial> GetFinancialByParapemptikoId(int partialParapemptikoId);
 
         IEnumerable<Financial> GetFinancialBySinedriesId(int partialSinedriesId);
+
+        // Save - Update
+        void SaveClient(Financial financial);
     }
 }

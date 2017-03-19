@@ -8,6 +8,12 @@ namespace _3k.Domain.Interfaces.Services
 {
     public interface IGiatrosService
     {
+
+        // Get By
         IEnumerable<Giatros> GetGiatrosByEponimo(string partialEponimo);
+
+
+        // Save - Update
+        void SaveGiatros(Giatros giatros);
     }
 }

@@ -19,7 +19,7 @@ namespace _3k.Infrastructure.Services
             _financialRepository = financialReposiroty;
         }
 
-
+        // Get By
         public IEnumerable<Financial> GetFinancialByAsthenisId(int partialAsthenisId)
         {
             var clients = _financialRepository.GetFinancialByAsthenisId(partialAsthenisId);
@@ -42,6 +42,13 @@ namespace _3k.Infrastructure.Services
         {
             var clients = _financialRepository.GetFinancialBySinedriesId(partialSinedriesId);
             return clients;
+        }
+
+
+        // Save - Update
+        public void SaveClient(Financial financial)
+        {
+            _financialRepository.Update(financial);
         }
     }
 }

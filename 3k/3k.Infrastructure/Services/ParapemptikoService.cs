@@ -18,7 +18,7 @@ namespace _3k.Infrastructure.Services
             _parapemptikoRepository = parapemptikoRepository;
         }
 
-
+        //Get By
         public IEnumerable<Parapemptiko> GetParapempitkoByAsthnisId(int PartialAsthnisId)
         {
             var clients = _parapemptikoRepository.GetParapempitkoByAsthnisId(PartialAsthnisId);
@@ -35,6 +35,12 @@ namespace _3k.Infrastructure.Services
         {
             var clients = _parapemptikoRepository.GetParapempitkoByParapemptikoId(PartialParapemptikoId);
             return clients;
+        }
+
+        //Save
+        public void SaveParampemptiko(Parapemptiko parapemptiko)
+        {
+            _parapemptikoRepository.Update(parapemptiko);
         }
     }
 }

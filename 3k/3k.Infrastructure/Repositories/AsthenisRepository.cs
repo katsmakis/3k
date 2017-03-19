@@ -3,6 +3,7 @@ using _3k.Domain.Interfaces.Repositories;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System;
 
 namespace _3k.Infrastructure.Repositories
 {
@@ -14,13 +15,13 @@ namespace _3k.Infrastructure.Repositories
 
         public IEnumerable<Asthenis> GetAsthenisByAll(string partialEponimo, string partialOnoma, decimal AMKA)
         {
-            IEnumerable<Asthenis> asthenis;
+            //IEnumerable<Asthenis> asthenis;
             //if (partialEponimo != string.Empty)
             //    {
             //    asthenis=
 
                 return Context.Asthenis.Where(b => b.Eponimo.Contains(partialEponimo) && b.Onoma.Contains(partialOnoma) && b.amka == AMKA);
-                //}
+            //}
         }
 
         public IEnumerable<Asthenis> GetAsthenisByAMKA(decimal AMKA)
@@ -32,5 +33,6 @@ namespace _3k.Infrastructure.Repositories
         {
             return Context.Asthenis.Where(a => a.Eponimo.Contains(partialEponimo));
         }
+
     }
 }

@@ -19,11 +19,21 @@ namespace _3k.Infrastructure.Services
 
         }
 
-        
+        // Get By
         public IEnumerable<Giatros> GetGiatrosByEponimo(string partialEponimo)
         {
             var clients = _giatrosRepository.GetGiatrosByEponimo(partialEponimo);
             return clients;
         }
+
+        //Save 
+        public void SaveGiatros(Giatros giatros)
+        {
+            _giatrosRepository.Update(giatros);
+        }
+
+       
+
+
     }
 }
