@@ -57,12 +57,15 @@
     <Compile Include="Repositories\FisikotherapeftisRepository.cs" />
     <Compile Include="Repositories\GiatrosRepository.cs" />
     <Compile Include="Repositories\ParapemptikoRepository.cs" />
+    <Compile Include="Repositories\SeiraParastatikouRepository.cs" />
     <Compile Include="Repositories\SinedriesRepository.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\FinancialService.cs" />
     <Compile Include="Services\FisikotherapeftisService.cs" />
     <Compile Include="Services\GiatrosService.cs" />
     <Compile Include="Services\ParapemptikoService.cs" />
+    <Compile Include="Services\SeiraParastatikouService.cs" />
+    <Compile Include="Services\SinedriesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DryIoc, Version=2.10.2.0, Culture=neutral, processorArchitecture=MSIL">

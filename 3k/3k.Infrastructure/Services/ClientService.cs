@@ -15,10 +15,13 @@ namespace _3k.Infrastructure.Services
 
 
 
-        public ClientService(IAsthenisRepository asthenisReposiroty, IFinancialRepository _financialRepository, ISinedriesRepository _sinedriesRepository, IParapemptikoRepository _parapemptikoRepository)
+        public ClientService(IAsthenisRepository asthenisReposiroty, IFinancialRepository financialRepository, ISinedriesRepository sinedriesRepository, IParapemptikoRepository parapemptikoRepository)
 
         {
             _asthenisRepository = asthenisReposiroty;
+            _financialRepository = financialRepository;
+            _sinedriesRepository = sinedriesRepository;
+            _parapemptikoRepository = parapemptikoRepository;
         }
         // Get
         public IEnumerable<Asthenis> GetAsthenisByAll(string partialEponimo, string partialOnoma, decimal AMKA)
@@ -38,6 +41,8 @@ namespace _3k.Infrastructure.Services
             var clients = _asthenisRepository.GetAsthenisByEponimo(partialEponimo);
             return clients;
         }
+
+
 
         // Save - Update
         public void SaveClient(Asthenis asthenis)

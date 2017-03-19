@@ -9,12 +9,11 @@ namespace _3k.Domain.Interfaces.Repositories
 {
     public interface IFinancialRepository : IRepository<Financial>, IDisposable
     {
-        IEnumerable<Financial> GetFinancialByFinancialId(int partialFinancialId);
 
-        IEnumerable<Financial> GetFinancialByAsthenisId(int partialAsthenisId);
+        IEnumerable<Financial> GetFinancialByAsthenisId(int asthenisId);
 
-        IEnumerable<Financial> GetFinancialByParapemptikoId(int partialParapemptikoId);
+        IEnumerable<Financial> GetFinancialByParapemptikoId(int parapemptikoId);
 
-        IEnumerable<Financial> GetFinancialBySinedriesId(int partialSinedriesId);
+        IEnumerable<Financial> GetFinancialBySinedriesId(int sinedriesId);
     }
 }

@@ -9,11 +9,11 @@ namespace _3k.Domain.Interfaces.Services
     public interface ISinedriesService
     {
         // Get By
-        IEnumerable<Sinedries> GetSinedriesByParapemtiko(int partialParapemptikoId);
+        IEnumerable<Sinedries> GetSinedriesByParapemtiko(int parapemptikoId);
 
-        IEnumerable<Sinedries> GetSinedriesByAsthenisId(int partialAsthnisId);
+        IEnumerable<Sinedries> GetSinedriesByAsthenisId(int asthnisId);
 
-        IEnumerable<Sinedries> GetSinedriesByFisikotherapeftisId(int partialFisikotherapeftisId);
+        IEnumerable<Sinedries> GetSinedriesByFisikotherapeftisId(int fisikotherapeftisId);
 
         // Save - Update
         void SaveSinedries(Sinedries sinedries);

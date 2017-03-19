@@ -20,27 +20,22 @@ namespace _3k.Infrastructure.Services
         }
 
         // Get By
-        public IEnumerable<Financial> GetFinancialByAsthenisId(int partialAsthenisId)
+        public IEnumerable<Financial> GetFinancialByAsthenisId(int asthenisId)
         {
-            var clients = _financialRepository.GetFinancialByAsthenisId(partialAsthenisId);
+            var clients = _financialRepository.GetFinancialByAsthenisId(asthenisId);
             return clients;
         }
 
-        public IEnumerable<Financial> GetFinancialByFinancialId(int partialFinancialId)
+
+        public IEnumerable<Financial> GetFinancialByParapemptikoId(int parapemptikoId)
         {
-            var clients = _financialRepository.GetFinancialByFinancialId(partialFinancialId);
+            var clients = _financialRepository.GetFinancialByParapemptikoId(parapemptikoId);
             return clients;
         }
 
-        public IEnumerable<Financial> GetFinancialByParapemptikoId(int partialParapemptikoId)
+        public IEnumerable<Financial> GetFinancialBySinedriesId(int sinedriesId)
         {
-            var clients = _financialRepository.GetFinancialByParapemptikoId(partialParapemptikoId);
-            return clients;
-        }
-
-        public IEnumerable<Financial> GetFinancialBySinedriesId(int partialSinedriesId)
-        {
-            var clients = _financialRepository.GetFinancialBySinedriesId(partialSinedriesId);
+            var clients = _financialRepository.GetFinancialBySinedriesId(sinedriesId);
             return clients;
         }
 

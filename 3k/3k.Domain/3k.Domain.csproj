@@ -95,6 +95,7 @@
     </Compile>
     <Compile Include="Interfaces\Repositories\IFinancialRepository.cs" />
     <Compile Include="Interfaces\Repositories\IParapemptikoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ISeiraParastatikouRepository.cs" />
     <Compile Include="Interfaces\Repositories\ISinedriesRepository.cs" />
     <Compile Include="Interfaces\Repositories\IFisikotherapeftisRepository.cs" />
     <Compile Include="Interfaces\Repositories\IAsthenisRepository.cs" />
@@ -104,11 +105,12 @@
     <Compile Include="Interfaces\Services\IFisikotherapeftisService.cs" />
     <Compile Include="Interfaces\Services\IGiatrosService.cs" />
     <Compile Include="Interfaces\Services\IParapemptikoService.cs" />
+    <Compile Include="Interfaces\Services\ISeiraParastatikouService.cs" />
     <Compile Include="Interfaces\Services\ISinedriesService.cs" />
     <Compile Include="Parapemptiko.cs">
       <DependentUpon>3k.tt</DependentUpon>
     </Compile>
-    <Compile Include="SeiraParastatiko.cs">
+    <Compile Include="SeiraParastatikou.cs">
       <DependentUpon>3k.tt</DependentUpon>
     </Compile>
     <Compile Include="Sinedries.cs">

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CustomerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CustomerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Asthenis">
           <Key>
             <PropertyRef Name="AsthenisId" />
@@ -34,7 +34,7 @@
             <PropertyRef Name="FinancialId" />
           </Key>
           <Property Name="FinancialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ParastaikoId" Type="int" />
+          <Property Name="SeiraParastaikouId" Type="int" />
           <Property Name="Date" Type="date" />
           <Property Name="Perigrafi" Type="nvarchar" MaxLength="250" />
           <Property Name="Poso" Type="decimal" Precision="18" Scale="2" />
@@ -81,11 +81,11 @@
           <Property Name="DateLixis" Type="date" />
           <Property Name="Poso" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <EntityType Name="SeiraParastatiko">
+        <EntityType Name="SeiraParastatikou">
           <Key>
-            <PropertyRef Name="ParastatikoId" />
+            <PropertyRef Name="SeiraId" />
           </Key>
-          <Property Name="ParastatikoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SeiraId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Perigrafi" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Sinedries">
@@ -138,14 +138,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Financial_SeiraParastatiko">
-          <End Role="SeiraParastatiko" Type="Self.SeiraParastatiko" Multiplicity="0..1" />
+          <End Role="SeiraParastatikou" Type="Self.SeiraParastatikou" Multiplicity="0..1" />
           <End Role="Financial" Type="Self.Financial" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="SeiraParastatiko">
-              <PropertyRef Name="ParastatikoId" />
+            <Principal Role="SeiraParastatikou">
+              <PropertyRef Name="SeiraId" />
             </Principal>
             <Dependent Role="Financial">
-              <PropertyRef Name="ParastaikoId" />
+              <PropertyRef Name="SeiraParastaikouId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -228,7 +228,7 @@
           <EntitySet Name="Fisikotherapeftis" EntityType="Self.Fisikotherapeftis" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Giatros" EntityType="Self.Giatros" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Parapemptiko" EntityType="Self.Parapemptiko" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SeiraParastatiko" EntityType="Self.SeiraParastatiko" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeiraParastatikou" EntityType="Self.SeiraParastatikou" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sinedries" EntityType="Self.Sinedries" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Asthenis_Filo" Association="Self.FK_Asthenis_Filo">
             <End Role="Filo" EntitySet="Filo" />
@@ -243,7 +243,7 @@
             <End Role="Financial" EntitySet="Financial" />
           </AssociationSet>
           <AssociationSet Name="FK_Financial_SeiraParastatiko" Association="Self.FK_Financial_SeiraParastatiko">
-            <End Role="SeiraParastatiko" EntitySet="SeiraParastatiko" />
+            <End Role="SeiraParastatikou" EntitySet="SeiraParastatikou" />
             <End Role="Financial" EntitySet="Financial" />
           </AssociationSet>
           <AssociationSet Name="FK_Financial_Sinedries" Association="Self.FK_Financial_Sinedries">
@@ -271,8 +271,7 @@
             <End Role="Sinedries" EntitySet="Sinedries" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CustomerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -310,7 +309,6 @@
             <PropertyRef Name="FinancialId" />
           </Key>
           <Property Name="FinancialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ParastaikoId" Type="Int32" />
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="Perigrafi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Poso" Type="Decimal" Precision="18" Scale="2" />
@@ -319,8 +317,9 @@
           <Property Name="SinedriesId" Type="Int32" />
           <NavigationProperty Name="Asthenis" Relationship="Self.FK_Financial_Asthenis" FromRole="Financial" ToRole="Asthenis" />
           <NavigationProperty Name="Parapemptiko" Relationship="Self.FK_Financial_Parapemptiko" FromRole="Financial" ToRole="Parapemptiko" />
-          <NavigationProperty Name="SeiraParastatiko" Relationship="Self.FK_Financial_SeiraParastatiko" FromRole="Financial" ToRole="SeiraParastatiko" />
           <NavigationProperty Name="Sinedries" Relationship="Self.FK_Financial_Sinedries" FromRole="Financial" ToRole="Sinedries" />
+          <Property Name="SeiraParastaikouId" Type="Int32" />
+          <NavigationProperty Name="SeiraParastatikou" Relationship="CustomerModel.FK_Financial_SeiraParastatiko1" FromRole="Financial" ToRole="SeiraParastatikou" />
         </EntityType>
         <EntityType Name="Fisikotherapeftis">
           <Key>
@@ -366,14 +365,6 @@
           <NavigationProperty Name="Financial" Relationship="Self.FK_Financial_Parapemptiko" FromRole="Parapemptiko" ToRole="Financial" />
           <NavigationProperty Name="Giatros" Relationship="Self.FK_Parapemptiko_Giatros" FromRole="Parapemptiko" ToRole="Giatros" />
           <NavigationProperty Name="Sinedries" Relationship="Self.FK_Sinedries_Parapemptiko" FromRole="Parapemptiko" ToRole="Sinedries" />
-        </EntityType>
-        <EntityType Name="SeiraParastatiko">
-          <Key>
-            <PropertyRef Name="ParastatikoId" />
-          </Key>
-          <Property Name="ParastatikoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Perigrafi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Financial" Relationship="Self.FK_Financial_SeiraParastatiko" FromRole="SeiraParastatiko" ToRole="Financial" />
         </EntityType>
         <EntityType Name="Sinedries">
           <Key>
@@ -452,18 +443,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Financial_SeiraParastatiko">
-          <End Role="SeiraParastatiko" Type="Self.SeiraParastatiko" Multiplicity="0..1" />
-          <End Role="Financial" Type="Self.Financial" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SeiraParastatiko">
-              <PropertyRef Name="ParastatikoId" />
-            </Principal>
-            <Dependent Role="Financial">
-              <PropertyRef Name="ParastaikoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Financial_Sinedries">
           <End Role="Sinedries" Type="Self.Sinedries" Multiplicity="0..1" />
           <End Role="Financial" Type="Self.Financial" Multiplicity="*" />
@@ -519,7 +498,6 @@
           <EntitySet Name="Fisikotherapeftis" EntityType="Self.Fisikotherapeftis" />
           <EntitySet Name="Giatros" EntityType="Self.Giatros" />
           <EntitySet Name="Parapemptiko" EntityType="Self.Parapemptiko" />
-          <EntitySet Name="SeiraParastatiko" EntityType="Self.SeiraParastatiko" />
           <EntitySet Name="Sinedries" EntityType="Self.Sinedries" />
           <AssociationSet Name="FK_Asthenis_Filo" Association="Self.FK_Asthenis_Filo">
             <End Role="Filo" EntitySet="Filo" />
@@ -541,10 +519,6 @@
             <End Role="Parapemptiko" EntitySet="Parapemptiko" />
             <End Role="Financial" EntitySet="Financial" />
           </AssociationSet>
-          <AssociationSet Name="FK_Financial_SeiraParastatiko" Association="Self.FK_Financial_SeiraParastatiko">
-            <End Role="SeiraParastatiko" EntitySet="SeiraParastatiko" />
-            <End Role="Financial" EntitySet="Financial" />
-          </AssociationSet>
           <AssociationSet Name="FK_Financial_Sinedries" Association="Self.FK_Financial_Sinedries">
             <End Role="Sinedries" EntitySet="Sinedries" />
             <End Role="Financial" EntitySet="Financial" />
@@ -561,7 +535,32 @@
             <End Role="Parapemptiko" EntitySet="Parapemptiko" />
             <End Role="Sinedries" EntitySet="Sinedries" />
           </AssociationSet>
+          <EntitySet Name="SeiraParastatikou" EntityType="CustomerModel.SeiraParastatikou" />
+          <AssociationSet Name="FK_Financial_SeiraParastatiko1" Association="CustomerModel.FK_Financial_SeiraParastatiko1">
+            <End Role="SeiraParastatikou" EntitySet="SeiraParastatikou" />
+            <End Role="Financial" EntitySet="Financial" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="SeiraParastatikou">
+          <Key>
+            <PropertyRef Name="SeiraId" />
+          </Key>
+          <Property Name="SeiraId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Perigrafi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Financial" Relationship="CustomerModel.FK_Financial_SeiraParastatiko1" FromRole="SeiraParastatikou" ToRole="Financial" />
+        </EntityType>
+        <Association Name="FK_Financial_SeiraParastatiko1">
+          <End Type="CustomerModel.SeiraParastatikou" Role="SeiraParastatikou" Multiplicity="0..1" />
+          <End Type="CustomerModel.Financial" Role="Financial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SeiraParastatikou">
+              <PropertyRef Name="SeiraId" />
+            </Principal>
+            <Dependent Role="Financial">
+              <PropertyRef Name="SeiraParastaikouId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -597,8 +596,8 @@
           <EntitySetMapping Name="Financial">
             <EntityTypeMapping TypeName="CustomerModel.Financial">
               <MappingFragment StoreEntitySet="Financial">
+                <ScalarProperty Name="SeiraParastaikouId" ColumnName="SeiraParastaikouId" />
                 <ScalarProperty Name="FinancialId" ColumnName="FinancialId" />
-                <ScalarProperty Name="ParastaikoId" ColumnName="ParastaikoId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Perigrafi" ColumnName="Perigrafi" />
                 <ScalarProperty Name="Poso" ColumnName="Poso" />
@@ -650,14 +649,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SeiraParastatiko">
-            <EntityTypeMapping TypeName="CustomerModel.SeiraParastatiko">
-              <MappingFragment StoreEntitySet="SeiraParastatiko">
-                <ScalarProperty Name="ParastatikoId" ColumnName="ParastatikoId" />
-                <ScalarProperty Name="Perigrafi" ColumnName="Perigrafi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Sinedries">
             <EntityTypeMapping TypeName="CustomerModel.Sinedries">
               <MappingFragment StoreEntitySet="Sinedries">
@@ -669,6 +660,14 @@
                 <ScalarProperty Name="Paratirisis" ColumnName="Paratirisis" />
                 <ScalarProperty Name="Poso" ColumnName="Poso" />
                 <ScalarProperty Name="time" ColumnName="time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeiraParastatikou">
+            <EntityTypeMapping TypeName="CustomerModel.SeiraParastatikou">
+              <MappingFragment StoreEntitySet="SeiraParastatikou">
+                <ScalarProperty Name="Perigrafi" ColumnName="Perigrafi" />
+                <ScalarProperty Name="SeiraId" ColumnName="SeiraId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

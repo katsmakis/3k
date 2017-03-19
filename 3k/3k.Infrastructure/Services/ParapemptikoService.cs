@@ -19,21 +19,15 @@ namespace _3k.Infrastructure.Services
         }
 
         //Get By
-        public IEnumerable<Parapemptiko> GetParapempitkoByAsthnisId(int PartialAsthnisId)
+        public IEnumerable<Parapemptiko> GetParapempitkoByAsthnisId(int asthnisId)
         {
-            var clients = _parapemptikoRepository.GetParapempitkoByAsthnisId(PartialAsthnisId);
+            var clients = _parapemptikoRepository.GetParapempitkoByAsthnisId(asthnisId);
             return clients;
         }
 
-        public IEnumerable<Parapemptiko> GetParapempitkoByGiatrosId(int PartialGiatrosId)
+        public IEnumerable<Parapemptiko> GetParapempitkoByGiatrosId(int giatrosId)
         {
-            var clients = _parapemptikoRepository.GetParapempitkoByGiatrosId(PartialGiatrosId);
-            return clients;
-        }
-
-        public IEnumerable<Parapemptiko> GetParapempitkoByParapemptikoId(int PartialParapemptikoId)
-        {
-            var clients = _parapemptikoRepository.GetParapempitkoByParapemptikoId(PartialParapemptikoId);
+            var clients = _parapemptikoRepository.GetParapempitkoByGiatrosId(giatrosId);
             return clients;
         }
 
