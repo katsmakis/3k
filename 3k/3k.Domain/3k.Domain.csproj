@@ -116,8 +116,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="DryIoc, Version=2.10.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DryIoc.dll.2.10.1\lib\net45\DryIoc.dll</HintPath>
+    <Reference Include="DryIoc, Version=2.10.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DryIoc.dll.2.10.2\lib\net45\DryIoc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -137,18 +137,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="3k.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>3k.edmx</DependentUpon>
-      <LastGenOutput>3k.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="3k.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>3k.edmx</DependentUpon>
-      <LastGenOutput>3k.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +150,24 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="3k.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>3k.edmx</DependentUpon>
+      <LastGenOutput>3k.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="3k.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>3k.edmx</DependentUpon>
+      <LastGenOutput>3k.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
