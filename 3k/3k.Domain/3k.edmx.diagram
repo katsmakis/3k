@@ -23,6 +23,11 @@
         <AssociationConnector Association="CustomerModel.FK_Sinedries_Parapemptiko" ManuallyRouted="false" />
         <EntityTypeShape EntityType="CustomerModel.SeiraParastatikou" Width="2.75" PointX="3.125" PointY="9.5" />
         <AssociationConnector Association="CustomerModel.FK_Financial_SeiraParastatiko1" />
+        <EntityTypeShape EntityType="CustomerModel.User" Width="1.5" PointX="8.625" PointY="9.5" />
+        <EntityTypeShape EntityType="CustomerModel.UserEpipedo" Width="1.5" PointX="10.625" PointY="9.5" />
+        <EntityTypeShape EntityType="CustomerModel.UserIdiotita" Width="1.5" PointX="6.5" PointY="9.5" />
+        <AssociationConnector Association="CustomerModel.FK_User_UserEpipedo" />
+        <AssociationConnector Association="CustomerModel.FK_User_UserIdiotita" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

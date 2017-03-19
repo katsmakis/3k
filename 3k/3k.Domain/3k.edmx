@@ -101,6 +101,32 @@
           <Property Name="Poso" Type="decimal" Precision="18" Scale="2" />
           <Property Name="time" Type="time" Precision="7" />
         </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Eponimo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Onoma" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdiotitaId" Type="int" />
+          <Property Name="EpipedoId" Type="int" />
+        </EntityType>
+        <EntityType Name="UserEpipedo">
+          <Key>
+            <PropertyRef Name="EpipedoId" />
+          </Key>
+          <Property Name="EpipedoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Perigrafi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserIdiotita">
+          <Key>
+            <PropertyRef Name="IdiotitaId" />
+          </Key>
+          <Property Name="IdiotitaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Perigrafi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <Association Name="FK_Asthenis_Filo">
           <End Role="Filo" Type="Self.Filo" Multiplicity="0..1" />
           <End Role="Asthenis" Type="Self.Asthenis" Multiplicity="*" />
@@ -221,6 +247,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_User_UserEpipedo">
+          <End Role="UserEpipedo" Type="Self.UserEpipedo" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserEpipedo">
+              <PropertyRef Name="EpipedoId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="EpipedoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserIdiotita">
+          <End Role="UserIdiotita" Type="Self.UserIdiotita" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserIdiotita">
+              <PropertyRef Name="IdiotitaId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IdiotitaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="CustomerModelStoreContainer">
           <EntitySet Name="Asthenis" EntityType="Self.Asthenis" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Filo" EntityType="Self.Filo" Schema="dbo" store:Type="Tables" />
@@ -230,6 +280,9 @@
           <EntitySet Name="Parapemptiko" EntityType="Self.Parapemptiko" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SeiraParastatikou" EntityType="Self.SeiraParastatikou" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sinedries" EntityType="Self.Sinedries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserEpipedo" EntityType="Self.UserEpipedo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserIdiotita" EntityType="Self.UserIdiotita" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Asthenis_Filo" Association="Self.FK_Asthenis_Filo">
             <End Role="Filo" EntitySet="Filo" />
             <End Role="Asthenis" EntitySet="Asthenis" />
@@ -269,6 +322,14 @@
           <AssociationSet Name="FK_Sinedries_Parapemptiko" Association="Self.FK_Sinedries_Parapemptiko">
             <End Role="Parapemptiko" EntitySet="Parapemptiko" />
             <End Role="Sinedries" EntitySet="Sinedries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserEpipedo" Association="Self.FK_User_UserEpipedo">
+            <End Role="UserEpipedo" EntitySet="UserEpipedo" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserIdiotita" Association="Self.FK_User_UserIdiotita">
+            <End Role="UserIdiotita" EntitySet="UserIdiotita" />
+            <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -540,6 +601,17 @@
             <End Role="SeiraParastatikou" EntitySet="SeiraParastatikou" />
             <End Role="Financial" EntitySet="Financial" />
           </AssociationSet>
+          <EntitySet Name="User" EntityType="CustomerModel.User" />
+          <EntitySet Name="UserEpipedo" EntityType="CustomerModel.UserEpipedo" />
+          <EntitySet Name="UserIdiotita" EntityType="CustomerModel.UserIdiotita" />
+          <AssociationSet Name="FK_User_UserEpipedo" Association="CustomerModel.FK_User_UserEpipedo">
+            <End Role="UserEpipedo" EntitySet="UserEpipedo" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserIdiotita" Association="CustomerModel.FK_User_UserIdiotita">
+            <End Role="UserIdiotita" EntitySet="UserIdiotita" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="SeiraParastatikou">
           <Key>
@@ -558,6 +630,60 @@
             </Principal>
             <Dependent Role="Financial">
               <PropertyRef Name="SeiraParastaikouId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Eponimo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Onoma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdiotitaId" Type="Int32" />
+          <Property Name="EpipedoId" Type="Int32" />
+          <NavigationProperty Name="UserEpipedo" Relationship="CustomerModel.FK_User_UserEpipedo" FromRole="User" ToRole="UserEpipedo" />
+          <NavigationProperty Name="UserIdiotita" Relationship="CustomerModel.FK_User_UserIdiotita" FromRole="User" ToRole="UserIdiotita" />
+        </EntityType>
+        <EntityType Name="UserEpipedo">
+          <Key>
+            <PropertyRef Name="EpipedoId" />
+          </Key>
+          <Property Name="EpipedoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Perigrafi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="CustomerModel.FK_User_UserEpipedo" FromRole="UserEpipedo" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserIdiotita">
+          <Key>
+            <PropertyRef Name="IdiotitaId" />
+          </Key>
+          <Property Name="IdiotitaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Perigrafi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="CustomerModel.FK_User_UserIdiotita" FromRole="UserIdiotita" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_User_UserEpipedo">
+          <End Type="CustomerModel.UserEpipedo" Role="UserEpipedo" Multiplicity="0..1" />
+          <End Type="CustomerModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserEpipedo">
+              <PropertyRef Name="EpipedoId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="EpipedoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserIdiotita">
+          <End Type="CustomerModel.UserIdiotita" Role="UserIdiotita" Multiplicity="0..1" />
+          <End Type="CustomerModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserIdiotita">
+              <PropertyRef Name="IdiotitaId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IdiotitaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -668,6 +794,35 @@
               <MappingFragment StoreEntitySet="SeiraParastatikou">
                 <ScalarProperty Name="Perigrafi" ColumnName="Perigrafi" />
                 <ScalarProperty Name="SeiraId" ColumnName="SeiraId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="CustomerModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="EpipedoId" ColumnName="EpipedoId" />
+                <ScalarProperty Name="IdiotitaId" ColumnName="IdiotitaId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Onoma" ColumnName="Onoma" />
+                <ScalarProperty Name="Eponimo" ColumnName="Eponimo" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserEpipedo">
+            <EntityTypeMapping TypeName="CustomerModel.UserEpipedo">
+              <MappingFragment StoreEntitySet="UserEpipedo">
+                <ScalarProperty Name="Perigrafi" ColumnName="Perigrafi" />
+                <ScalarProperty Name="EpipedoId" ColumnName="EpipedoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserIdiotita">
+            <EntityTypeMapping TypeName="CustomerModel.UserIdiotita">
+              <MappingFragment StoreEntitySet="UserIdiotita">
+                <ScalarProperty Name="Perigrafi" ColumnName="Perigrafi" />
+                <ScalarProperty Name="IdiotitaId" ColumnName="IdiotitaId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
