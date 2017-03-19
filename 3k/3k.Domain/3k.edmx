@@ -12,22 +12,22 @@
           <Property Name="AsthenisId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Eponimo" Type="nvarchar" MaxLength="50" />
           <Property Name="Onoma" Type="nvarchar" MaxLength="50" />
-          <Property Name="Patronimo" Type="nvarchar" MaxLength="50" />
           <Property Name="FiloId" Type="int" />
-          <Property Name="Diefthinsi" Type="nvarchar" MaxLength="150" />
+          <Property Name="Diefthinsi" Type="nvarchar" MaxLength="100" />
           <Property Name="Stathero" Type="nvarchar" MaxLength="10" />
           <Property Name="Kinito" Type="nvarchar" MaxLength="10" />
           <Property Name="DateGenisis" Type="date" />
-          <Property Name="Epaggelma" Type="nvarchar" MaxLength="150" />
-          <Property Name="email" Type="nvarchar" MaxLength="150" />
-          <Property Name="amka" Type="decimal" Precision="12" Scale="0" />
+          <Property Name="Epaggelma" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="amka" Type="decimal" Precision="16" Scale="0" />
+          <Property Name="Patronimo" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Filo">
           <Key>
             <PropertyRef Name="FiloId" />
           </Key>
           <Property Name="FiloId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Perigrafi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Perigrafi" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Financial">
           <Key>
@@ -36,8 +36,8 @@
           <Property Name="FinancialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ParastaikoId" Type="int" />
           <Property Name="Date" Type="date" />
-          <Property Name="Perigrafi" Type="nvarchar" MaxLength="250" />
-          <Property Name="Poso" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Perigrafi" Type="nvarchar" MaxLength="200" />
+          <Property Name="Poso" Type="decimal" Precision="10" Scale="2" />
           <Property Name="AsthenisId" Type="int" />
           <Property Name="ParapemptikoId" Type="int" />
           <Property Name="SinedriesId" Type="int" />
@@ -49,7 +49,6 @@
           <Property Name="FisikotherapeftisId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Eponimo" Type="nvarchar" MaxLength="50" />
           <Property Name="Onoma" Type="nvarchar" MaxLength="50" />
-          <Property Name="Patronimo" Type="nvarchar" MaxLength="50" />
           <Property Name="Stathero" Type="nvarchar" MaxLength="10" />
           <Property Name="Kinito" Type="nvarchar" MaxLength="10" />
           <Property Name="email" Type="nvarchar" MaxLength="50" />
@@ -62,43 +61,42 @@
           <Property Name="GiatrosId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Eponimo" Type="nvarchar" MaxLength="50" />
           <Property Name="Onoma" Type="nvarchar" MaxLength="50" />
-          <Property Name="Patronimo" Type="nvarchar" MaxLength="50" />
-          <Property Name="Diefthinsi" Type="nvarchar" MaxLength="150" />
+          <Property Name="Diefthinsi" Type="nvarchar" MaxLength="100" />
           <Property Name="Stathero" Type="nvarchar" MaxLength="10" />
           <Property Name="Kinito" Type="nvarchar" MaxLength="10" />
           <Property Name="Fax" Type="nvarchar" MaxLength="10" />
-          <Property Name="email" Type="nvarchar" MaxLength="150" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Parapemptiko">
           <Key>
             <PropertyRef Name="ParapemptikoId" />
           </Key>
           <Property Name="ParapemptikoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ParapemptikoCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParapemptikoCode" Type="nvarchar" MaxLength="20" />
           <Property Name="GiatrosId" Type="int" />
           <Property Name="AsthenisId" Type="int" />
           <Property Name="DateEnarxis" Type="date" />
           <Property Name="DateLixis" Type="date" />
-          <Property Name="Poso" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Poso" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
         <EntityType Name="SeiraParastatiko">
           <Key>
             <PropertyRef Name="ParastatikoId" />
           </Key>
-          <Property Name="ParastatikoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Perigrafi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParastatikoId" Type="int" Nullable="false" />
+          <Property Name="Perigrafi" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="Sinedries">
           <Key>
             <PropertyRef Name="SinedriesId" />
           </Key>
           <Property Name="SinedriesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AsthenisId" Type="int" />
+          <Property Name="AsthenisID" Type="int" />
           <Property Name="ParapemptikoId" Type="int" />
           <Property Name="Date" Type="date" />
           <Property Name="FisikotherapeftisId" Type="int" />
-          <Property Name="Paratirisis" Type="nvarchar" MaxLength="50" />
-          <Property Name="Poso" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Paratirisis" Type="nvarchar" MaxLength="500" />
+          <Property Name="Poso" Type="decimal" Precision="10" Scale="2" />
           <Property Name="time" Type="time" Precision="7" />
         </EntityType>
         <Association Name="FK_Asthenis_Filo">
@@ -193,7 +191,7 @@
               <PropertyRef Name="AsthenisId" />
             </Principal>
             <Dependent Role="Sinedries">
-              <PropertyRef Name="AsthenisId" />
+              <PropertyRef Name="AsthenisID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -283,15 +281,15 @@
           <Property Name="AsthenisId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Eponimo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Onoma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Patronimo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FiloId" Type="Int32" />
-          <Property Name="Diefthinsi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Diefthinsi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Stathero" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Kinito" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="DateGenisis" Type="DateTime" Precision="0" />
-          <Property Name="Epaggelma" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="amka" Type="Decimal" Precision="12" Scale="0" />
+          <Property Name="Epaggelma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="amka" Type="Decimal" Precision="16" Scale="0" />
+          <Property Name="Patronimo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Filo" Relationship="Self.FK_Asthenis_Filo" FromRole="Asthenis" ToRole="Filo" />
           <NavigationProperty Name="Financial" Relationship="Self.FK_Financial_Asthenis" FromRole="Asthenis" ToRole="Financial" />
           <NavigationProperty Name="Parapemptiko" Relationship="Self.FK_Parapemptiko_Asthenis" FromRole="Asthenis" ToRole="Parapemptiko" />
@@ -302,7 +300,7 @@
             <PropertyRef Name="FiloId" />
           </Key>
           <Property Name="FiloId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Perigrafi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Perigrafi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Asthenis" Relationship="Self.FK_Asthenis_Filo" FromRole="Filo" ToRole="Asthenis" />
         </EntityType>
         <EntityType Name="Financial">
@@ -312,8 +310,8 @@
           <Property Name="FinancialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ParastaikoId" Type="Int32" />
           <Property Name="Date" Type="DateTime" Precision="0" />
-          <Property Name="Perigrafi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Poso" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Perigrafi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Poso" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="AsthenisId" Type="Int32" />
           <Property Name="ParapemptikoId" Type="Int32" />
           <Property Name="SinedriesId" Type="Int32" />
@@ -329,7 +327,6 @@
           <Property Name="FisikotherapeftisId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Eponimo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Onoma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Patronimo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Stathero" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Kinito" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -343,12 +340,11 @@
           <Property Name="GiatrosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Eponimo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Onoma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Patronimo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Diefthinsi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Diefthinsi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Stathero" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Kinito" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Fax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Parapemptiko" Relationship="Self.FK_Parapemptiko_Giatros" FromRole="Giatros" ToRole="Parapemptiko" />
         </EntityType>
         <EntityType Name="Parapemptiko">
@@ -356,12 +352,12 @@
             <PropertyRef Name="ParapemptikoId" />
           </Key>
           <Property Name="ParapemptikoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ParapemptikoCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParapemptikoCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="GiatrosId" Type="Int32" />
           <Property Name="AsthenisId" Type="Int32" />
           <Property Name="DateEnarxis" Type="DateTime" Precision="0" />
           <Property Name="DateLixis" Type="DateTime" Precision="0" />
-          <Property Name="Poso" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Poso" Type="Decimal" Precision="10" Scale="2" />
           <NavigationProperty Name="Asthenis" Relationship="Self.FK_Parapemptiko_Asthenis" FromRole="Parapemptiko" ToRole="Asthenis" />
           <NavigationProperty Name="Financial" Relationship="Self.FK_Financial_Parapemptiko" FromRole="Parapemptiko" ToRole="Financial" />
           <NavigationProperty Name="Giatros" Relationship="Self.FK_Parapemptiko_Giatros" FromRole="Parapemptiko" ToRole="Giatros" />
@@ -371,8 +367,8 @@
           <Key>
             <PropertyRef Name="ParastatikoId" />
           </Key>
-          <Property Name="ParastatikoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Perigrafi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParastatikoId" Type="Int32" Nullable="false" />
+          <Property Name="Perigrafi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Financial" Relationship="Self.FK_Financial_SeiraParastatiko" FromRole="SeiraParastatiko" ToRole="Financial" />
         </EntityType>
         <EntityType Name="Sinedries">
@@ -380,12 +376,12 @@
             <PropertyRef Name="SinedriesId" />
           </Key>
           <Property Name="SinedriesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AsthenisId" Type="Int32" />
+          <Property Name="AsthenisID" Type="Int32" />
           <Property Name="ParapemptikoId" Type="Int32" />
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="FisikotherapeftisId" Type="Int32" />
-          <Property Name="Paratirisis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Poso" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Paratirisis" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Poso" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="time" Type="Time" Precision="7" />
           <NavigationProperty Name="Asthenis" Relationship="Self.FK_Sinedries_Asthenis" FromRole="Sinedries" ToRole="Asthenis" />
           <NavigationProperty Name="Financial" Relationship="Self.FK_Financial_Sinedries" FromRole="Sinedries" ToRole="Financial" />
@@ -436,7 +432,7 @@
               <PropertyRef Name="AsthenisId" />
             </Principal>
             <Dependent Role="Sinedries">
-              <PropertyRef Name="AsthenisId" />
+              <PropertyRef Name="AsthenisID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -574,7 +570,6 @@
                 <ScalarProperty Name="AsthenisId" ColumnName="AsthenisId" />
                 <ScalarProperty Name="Eponimo" ColumnName="Eponimo" />
                 <ScalarProperty Name="Onoma" ColumnName="Onoma" />
-                <ScalarProperty Name="Patronimo" ColumnName="Patronimo" />
                 <ScalarProperty Name="FiloId" ColumnName="FiloId" />
                 <ScalarProperty Name="Diefthinsi" ColumnName="Diefthinsi" />
                 <ScalarProperty Name="Stathero" ColumnName="Stathero" />
@@ -583,6 +578,7 @@
                 <ScalarProperty Name="Epaggelma" ColumnName="Epaggelma" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="amka" ColumnName="amka" />
+                <ScalarProperty Name="Patronimo" ColumnName="Patronimo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -614,7 +610,6 @@
                 <ScalarProperty Name="FisikotherapeftisId" ColumnName="FisikotherapeftisId" />
                 <ScalarProperty Name="Eponimo" ColumnName="Eponimo" />
                 <ScalarProperty Name="Onoma" ColumnName="Onoma" />
-                <ScalarProperty Name="Patronimo" ColumnName="Patronimo" />
                 <ScalarProperty Name="Stathero" ColumnName="Stathero" />
                 <ScalarProperty Name="Kinito" ColumnName="Kinito" />
                 <ScalarProperty Name="email" ColumnName="email" />
@@ -628,7 +623,6 @@
                 <ScalarProperty Name="GiatrosId" ColumnName="GiatrosId" />
                 <ScalarProperty Name="Eponimo" ColumnName="Eponimo" />
                 <ScalarProperty Name="Onoma" ColumnName="Onoma" />
-                <ScalarProperty Name="Patronimo" ColumnName="Patronimo" />
                 <ScalarProperty Name="Diefthinsi" ColumnName="Diefthinsi" />
                 <ScalarProperty Name="Stathero" ColumnName="Stathero" />
                 <ScalarProperty Name="Kinito" ColumnName="Kinito" />
@@ -662,7 +656,7 @@
             <EntityTypeMapping TypeName="CustomerModel.Sinedries">
               <MappingFragment StoreEntitySet="Sinedries">
                 <ScalarProperty Name="SinedriesId" ColumnName="SinedriesId" />
-                <ScalarProperty Name="AsthenisId" ColumnName="AsthenisId" />
+                <ScalarProperty Name="AsthenisID" ColumnName="AsthenisID" />
                 <ScalarProperty Name="ParapemptikoId" ColumnName="ParapemptikoId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="FisikotherapeftisId" ColumnName="FisikotherapeftisId" />

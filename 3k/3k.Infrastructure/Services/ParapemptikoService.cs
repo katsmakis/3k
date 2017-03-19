@@ -15,7 +15,7 @@ namespace _3k.Infrastructure.Services
 
         public ParapemptikoService(IParapemptikoRepository parapemptikoRepository)
         {
-            _parapemptikoRepository = parapemptikoRepository;
+            parapemptikoRepository = _parapemptikoRepository;
         }
 
 
