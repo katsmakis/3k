@@ -1,0 +1,7 @@
+﻿{
+  "url": {
+    "baseUrl": "http://localhost:12739/api/v1",
+    "baseTokenUrl": "http://localhost:12739/token"
+  }
+
+}

@@ -23,10 +23,10 @@ gulp.task('inject', ['scripts', 'styles', 'injectAuth', 'inject404', 'copyVendor
 
   var injectScripts = gulp.src([
     path.join(conf.paths.src, '/assets/js/**/*.js'),
-    path.join(conf.paths.src, '/app/**/*.module.js'),
-    path.join(conf.paths.src, '/app/**/*.js'),
-    path.join('!' + conf.paths.src, '/app/**/*.spec.js'),
-    path.join('!' + conf.paths.src, '/app/**/*.mock.js'),
+    path.join(conf.paths.src, '/**/*.module.js'),
+    path.join(conf.paths.src, '/**/*.js'),
+    path.join('!' + conf.paths.src, '/**/*.spec.js'),
+    path.join('!' + conf.paths.src, '/**/*.mock.js'),
   ])
     /*.pipe($.angularFilesort())*/.on('error', conf.errorHandler('AngularFilesort'));
 
